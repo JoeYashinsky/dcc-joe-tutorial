@@ -10,9 +10,21 @@ class App extends Component {
       { title: "The First and Last Freedom", author: "Jiddu Krishnamurti" },
     ];
     this.state = {
-      bookNumber: 0,
-    };
+      bookNumber: 0
+    }
   }
+
+  goToNextBook() {
+      let tempBookNumber = this.state.bookNumber;
+      tempBookNumber++;
+      if (tempBookNumber === this.books.length) {
+          tempBookNumber = 0;
+      }
+      this.setState({
+          bookNumber: tempBookNumber
+      });
+  }
+
   render() {
     return (
       <div className="container-fluid">
